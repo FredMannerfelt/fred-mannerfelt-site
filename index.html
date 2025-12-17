@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fred Mannerfelt</title>
-  <meta name="description" content="Fred Mannerfelt — composer, producer & certified life coach. Music without borders." />
+  <meta name="description" content="Music without borders — from piano stillness to orchestral light and electronic motion." />
 
   <!-- Cormorant Garamond -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --ink:#1b1f2a;
-      --muted:rgba(27,31,42,.70);
-      --line:rgba(27,31,42,.14);
+      --ink:#141826;
+      --muted:rgba(20,24,38,.70);
+      --line:rgba(20,24,38,.14);
 
-      --bg1:#e9f0ff;
+      --bg1:#eaf0ff;
       --bg2:#ffffff;
 
       --glass:rgba(255,255,255,.86);
-      --glass-soft:rgba(255,255,255,.72);
+      --glass2:rgba(255,255,255,.70);
 
-      --radius:22px;
-      --shadow:0 30px 90px rgba(15,25,60,.14);
-      --max:1080px;
+      --radius:20px;
+      --shadow:0 24px 80px rgba(10,18,45,.12);
+      --max:1040px;
     }
 
     *{ box-sizing:border-box; }
@@ -37,31 +37,28 @@
       background:
         radial-gradient(900px 600px at 18% 18%, rgba(120,160,255,.35), transparent 60%),
         radial-gradient(900px 600px at 82% 22%, rgba(0,200,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 35% 85%, rgba(180,140,255,.18), transparent 60%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
       min-height:100vh;
-      padding:40px 18px 60px;
+      padding:40px 18px 56px;
     }
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-    }
+    .wrap{ max-width:var(--max); margin:0 auto; }
 
     .panel{
       background:var(--glass);
       border:1px solid var(--line);
-      border-radius:30px;
+      border-radius:28px;
       box-shadow:var(--shadow);
       overflow:hidden;
       backdrop-filter: blur(10px);
     }
 
-    /* HERO */
     .hero{
       position:relative;
-      min-height:440px;
+      min-height:420px;
       display:flex;
-      align-items:flex-start;
+      align-items:flex-start; /* keep content up in the "sky" */
     }
 
     .hero img{
@@ -70,290 +67,331 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      transform:scale(1.03);
+      filter:saturate(1.02) contrast(1.02);
     }
 
-    /* Darker at top, lighter at bottom */
+    /* Darken only the upper part for readability */
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(
-        to bottom,
-        rgba(10,14,24,.65) 0%,
-        rgba(10,14,24,.35) 40%,
-        rgba(255,255,255,.12) 68%,
-        rgba(255,255,255,.55) 100%
-      );
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(8,12,20,.66) 0%,
+          rgba(8,12,20,.34) 42%,
+          rgba(255,255,255,.06) 70%,
+          rgba(255,255,255,.00) 100%
+        );
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
-      padding:38px 38px 24px;
-      max-width:900px;
+      padding:38px 38px 28px;
+      width:100%;
+      color:rgba(255,255,255,.96);
+      max-width:860px;
     }
 
+    /* Make the name less “clumpy” */
     h1{
       margin:0 0 10px;
-      font-size:56px;
-      font-weight:600;
-      letter-spacing:.02em;
-      color:rgba(255,255,255,.95);
-      text-shadow:0 8px 22px rgba(0,0,0,.25);
+      font-size:62px;
+      line-height:1.02;
+      letter-spacing:-.01em; /* slightly tighter */
+      font-weight:500;       /* lighter than before */
+      text-transform:none;
+      text-shadow:0 10px 24px rgba(0,0,0,.24);
     }
 
     .tagline{
-      margin:0 0 12px;
-      font-size:17px;
-      line-height:1.6;
-      color:rgba(255,255,255,.85);
-      max-width:720px;
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.55;
+      color:rgba(255,255,255,.86);
+      max-width:760px;
+      text-shadow:0 10px 22px rgba(0,0,0,.22);
     }
 
-    .subtag{
-      margin:0 0 22px;
-      font-size:14px;
-      color:rgba(255,255,255,.70);
+    .subline{
+      margin:0 0 18px;
+      font-size:15px;
+      line-height:1.55;
+      color:rgba(255,255,255,.78);
+      text-shadow:0 10px 22px rgba(0,0,0,.20);
+      max-width:760px;
     }
 
     .links{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+      margin:10px 0 0;
     }
 
     .btn{
-      padding:10px 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(255,255,255,.85);
-      color:#1b1f2a;
+      border:1px solid rgba(255,255,255,.24);
+      background:rgba(255,255,255,.86);
+      color:#111522;
       text-decoration:none;
-      font-size:13px;
-      transition:transform .15s ease, background .15s ease;
+      font-size:14px;
+      line-height:1;
+      transition:transform .12s ease, background .12s ease;
+      user-select:none;
     }
-
     .btn:hover{
       transform:translateY(-1px);
-      background:#fff;
+      background:rgba(255,255,255,.96);
     }
 
-    .btn.disabled{
-      opacity:.6;
-      pointer-events:none;
-    }
-
-    /* CONTENT */
     .content{
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.9));
+      padding:26px 26px 22px;
       border-top:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.90));
     }
 
     .grid{
       display:grid;
-      grid-template-columns:1.2fr .9fr;
-      gap:20px;
+      grid-template-columns: 1.2fr .9fr;
+      gap:18px;
     }
 
     .card{
-      background:var(--glass-soft);
+      background:var(--glass2);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:22px;
+      padding:18px 18px;
     }
 
     .card h2{
-      margin:0 0 14px;
+      margin:0 0 12px;
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color:rgba(27,31,42,.65);
+      font-weight:700;
+      color:rgba(20,24,38,.70);
     }
 
     .about p{
-      margin:0 0 14px;
+      margin:0 0 12px;
       font-size:16px;
       line-height:1.75;
-      color:rgba(27,31,42,.82);
+      color:rgba(20,24,38,.82);
+    }
+    .about p:last-child{ margin-bottom:0; }
+
+    .work{
+      display:flex;
+      flex-direction:column;
+      gap:12px; /* a bit more air */
     }
 
     .work-item{
       display:flex;
-      justify-content:space-between;
+      gap:12px;
       align-items:flex-start;
-      padding:14px;
+      padding:14px 14px;
       border-radius:16px;
-      border:1px solid var(--line);
-      background:#fff;
-      margin-bottom:12px;
+      border:1px solid rgba(20,24,38,.10); /* slightly lighter */
+      background:rgba(255,255,255,.62);
     }
 
     .work-title{
+      margin:0;
       font-size:16px;
-      font-weight:600;
+      font-weight:700;
+      line-height:1.2;
+      color:rgba(20,24,38,.92);
     }
 
     .work-sub{
+      margin:5px 0 0;
       font-size:13px;
-      color:rgba(27,31,42,.65);
-      margin-top:4px;
+      line-height:1.5;
+      color:rgba(20,24,38,.68);
     }
 
     .pill{
+      margin-left:auto;
       font-size:11px;
-      padding:6px 12px;
+      padding:6px 10px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.85);
+      border:1px solid rgba(20,24,38,.12);
+      background:rgba(255,255,255,.78);
+      color:rgba(20,24,38,.70);
+      white-space:nowrap;
+      height:fit-content;
     }
 
     .mini-links{
-      margin-top:10px;
       display:flex;
-      gap:8px;
       flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
     }
 
-    .mini-links a{
-      font-size:12px;
-      text-decoration:none;
-      padding:6px 10px;
+    .mini{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 10px;
       border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--ink);
-      background:rgba(255,255,255,.9);
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .contact-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      font-size:14px;
-    }
-
-    .contact-box strong{
-      display:block;
-      font-size:11px;
-      letter-spacing:.16em;
-      margin-bottom:6px;
-      color:rgba(27,31,42,.6);
-    }
-
-    footer{
-      text-align:center;
+      border:1px solid rgba(20,24,38,.12);
+      background:rgba(255,255,255,.70);
+      color:rgba(20,24,38,.88);
+      text-decoration:none;
       font-size:12px;
-      color:rgba(27,31,42,.55);
-      padding:18px;
-      border-top:1px solid var(--line);
+      line-height:1;
+    }
+    .mini:hover{ background:rgba(255,255,255,.92); }
+
+    .contact{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .9fr .9fr;
+      gap:12px;
+      padding:16px 16px;
     }
 
-    @media(max-width:860px){
-      h1{font-size:42px;}
-      .grid{grid-template-columns:1fr;}
-      .contact-grid{grid-template-columns:1fr;}
+    .contact .field{
+      border:1px solid rgba(20,24,38,.12);
+      background:rgba(255,255,255,.62);
+      border-radius:16px;
+      padding:12px 12px;
+    }
+
+    .label{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(20,24,38,.62);
+      margin:0 0 6px;
+      font-weight:700;
+    }
+
+    .value{
+      margin:0;
+      font-size:15px;
+      color:rgba(20,24,38,.86);
+      line-height:1.4;
+    }
+
+    .value a{
+      color:rgba(20,24,38,.92);
+      text-decoration:none;
+      border-bottom:1px solid rgba(20,24,38,.18);
+    }
+    .value a:hover{ border-bottom-color:transparent; }
+
+    .footer{
+      padding:16px 26px 26px;
+      color:rgba(20,24,38,.52);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      background:rgba(255,255,255,.90);
+    }
+
+    @media (max-width: 900px){
+      h1{ font-size:48px; }
+      .hero{ min-height:380px; }
+      .hero-inner{ padding:26px 18px 18px; }
+      .grid{ grid-template-columns:1fr; }
+      .content{ padding:18px; }
+      .contact{ grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
-<div class="wrap">
-  <div class="panel">
+  <div class="wrap">
+    <div class="panel">
 
-    <!-- HERO -->
-    <section class="hero">
-      <img src="images/brygga.jpg" alt="Calm water at dusk" />
-      <div class="hero-inner">
-        <h1>Fred Mannerfelt</h1>
-        <p class="tagline">
-          Music without borders — from piano stillness to orchestral light and electronic motion.
-        </p>
-        <p class="subtag">
-          Composer &amp; certified life coach — drawn to presence, clarity, and change.
-        </p>
+      <!-- HERO -->
+      <section class="hero">
+        <img src="images/brygga.jpg" alt="Dusk over calm water" />
+        <div class="hero-inner">
+          <h1>Fred Mannerfelt</h1>
+          <p class="tagline">Music without borders — from piano stillness to orchestral light and electronic motion.</p>
+          <p class="subline">Composer &amp; certified life coach — drawn to presence, clarity, and change.</p>
 
-        <div class="links">
-          <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW" target="_blank">Spotify (Artist)</a>
-          <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank">Apple Music (Artist)</a>
-          <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw" target="_blank">YouTube Music (Artist)</a>
-          <span class="btn disabled">Instagram — coming soon</span>
-          <span class="btn disabled">Facebook — coming soon</span>
-          <a class="btn" href="mailto:fred@fredmannerfelt.com">Email</a>
+          <div class="links">
+            <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW?si=VRAyQugPR-6-H-EDeCG1GQ" target="_blank" rel="noopener">Spotify (Artist)</a>
+            <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank" rel="noopener">Apple Music (Artist)</a>
+            <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw?si=1hxiH-dWCWBcJQ7C" target="_blank" rel="noopener">YouTube Music (Artist)</a>
+            <a class="btn" href="mailto:fred@fredmannerfelt.com">Email</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CONTENT -->
-    <section class="content">
-      <div class="grid">
+      <!-- CONTENT -->
+      <section class="content">
+        <div class="grid">
 
-        <div class="card about">
-          <h2>About</h2>
-          <p>
-            I build and create sound like one shapes a sculpture — guided by feel, not labels.
-          </p>
-          <p>
-            Some pieces are quiet hours, others carry movement and momentum — not bound to a special genre.
-          </p>
-          <p>
-            I make music simply because it needs to exist — for myself, and for those who choose to listen.
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Selected Works</h2>
-
-          <div class="work-item">
-            <div>
-              <div class="work-title">Eight Quiet Hours</div>
-              <div class="work-sub">Album — piano &amp; orchestra (releases Friday)</div>
-            </div>
-            <span class="pill">Album</span>
+          <div class="card about">
+            <h2>About</h2>
+            <p>I build and create sound like it is a sculpture — guided by feel, not labels.</p>
+            <p>Some pieces are quiet hours, others are movement and momentum — not in a special genre.</p>
+            <p>I’m doing music for myself and for others to enjoy — as simple as that.</p>
           </div>
 
-          <div class="work-item">
-            <div>
-              <div class="work-title">Rise</div>
-              <div class="work-sub">Single — piano version &amp; orchestral counterpart</div>
-              <div class="mini-links">
-                <a href="https://open.spotify.com/track/3hkdbpKGkZGuqRdteRhWCW" target="_blank">Spotify</a>
-                <a href="https://music.apple.com/se/album/rise/1860167200?i=1860167201" target="_blank">Apple Music</a>
-                <a href="https://music.youtube.com/watch?v=uG7MAr3B6Do" target="_blank">YouTube Music</a>
+          <div class="card">
+            <h2>Selected Works</h2>
+
+            <div class="work">
+
+              <div class="work-item">
+                <div>
+                  <p class="work-title">Eight Quiet Hours</p>
+                  <p class="work-sub">Album — piano &amp; orchestra (releases Friday)</p>
+                </div>
+                <span class="pill">Album</span>
               </div>
+
+              <div class="work-item">
+                <div>
+                  <p class="work-title">Rise</p>
+                  <p class="work-sub">Single — piano version + orchestral counterpart</p>
+
+                  <div class="mini-links">
+                    <a class="mini" href="https://open.spotify.com/track/3hkdbpKGkZGuqRdteRhWCW?si=ee4dda29f90145c4" target="_blank" rel="noopener">Spotify</a>
+                    <a class="mini" href="https://music.apple.com/se/album/rise/1860167200?i=1860167201" target="_blank" rel="noopener">Apple Music</a>
+                    <a class="mini" href="https://music.youtube.com/watch?v=uG7MAr3B6Do&si=-5-B8hpp0773Zphw" target="_blank" rel="noopener">YouTube Music</a>
+                  </div>
+                </div>
+                <span class="pill">Single</span>
+              </div>
+
             </div>
-            <span class="pill">Single</span>
           </div>
 
         </div>
-      </div>
 
-      <!-- CONTACT -->
-      <div class="contact-grid">
-        <div class="contact-box">
-          <strong>Email</strong>
-          fred@fredmannerfelt.com
+        <!-- CONTACT -->
+        <div class="card contact" aria-label="Contact">
+          <div class="field">
+            <p class="label">Email</p>
+            <p class="value"><a href="mailto:fred@fredmannerfelt.com">fred@fredmannerfelt.com</a></p>
+          </div>
+          <div class="field">
+            <p class="label">US</p>
+            <p class="value">+1 415 324 09 04</p>
+          </div>
+          <div class="field">
+            <p class="label">EU</p>
+            <p class="value">+46 708 377 566</p>
+          </div>
         </div>
-        <div class="contact-box">
-          <strong>US</strong>
-          +1 415 324 09 04
-        </div>
-        <div class="contact-box">
-          <strong>EU</strong>
-          +46 708 377 566
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <footer>© 2025 Fred Mannerfelt</footer>
+      <div class="footer">© 2025 Fred Mannerfelt</div>
+    </div>
   </div>
-</div>
 </body>
 </html>
