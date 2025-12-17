@@ -6,10 +6,10 @@
   <title>Fred Mannerfelt</title>
   <meta name="description" content="Music without borders — from piano stillness to orchestral light and electronic motion." />
 
-  <!-- Cormorant Garamond (more alive, still classic) -->
+  <!-- Crimson Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -20,8 +20,8 @@
       --bg1:#eaf0ff;
       --bg2:#ffffff;
 
-      --glass:rgba(255,255,255,.86);
-      --glass2:rgba(255,255,255,.70);
+      --glass:rgba(255,255,255,.88);
+      --glass2:rgba(255,255,255,.72);
 
       --radius:20px;
       --shadow:0 24px 80px rgba(10,18,45,.12);
@@ -31,7 +31,7 @@
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family:"Cormorant Garamond", Georgia, serif;
+      font-family:"Crimson Pro", Georgia, serif;
       color:var(--ink);
       background:
         radial-gradient(900px 600px at 18% 18%, rgba(120,160,255,.32), transparent 60%),
@@ -78,9 +78,9 @@
       inset:0;
       background:linear-gradient(
         to bottom,
-        rgba(255,255,255,.08) 0%,
-        rgba(255,255,255,.38) 55%,
-        rgba(255,255,255,.88) 100%
+        rgba(255,255,255,.06) 0%,
+        rgba(255,255,255,.34) 52%,
+        rgba(255,255,255,.90) 100%
       );
     }
 
@@ -100,11 +100,19 @@
     }
 
     .tagline{
-      margin:0 0 18px;
+      margin:0 0 16px;
       color:var(--muted);
-      font-size:18px;
+      font-size:20px;
       line-height:1.55;
-      max-width:760px;
+      max-width:780px;
+      font-weight:400;
+    }
+
+    .subnote{
+      margin:0 0 18px;
+      color:rgba(21,25,36,.62);
+      font-size:16px;
+      line-height:1.55;
       font-weight:400;
     }
 
@@ -122,7 +130,7 @@
       padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.72);
+      background:rgba(255,255,255,.74);
       color:var(--ink);
       text-decoration:none;
       font-size:15px;
@@ -133,7 +141,7 @@
     }
     .btn:hover{
       transform:translateY(-1px);
-      background:rgba(255,255,255,.90);
+      background:rgba(255,255,255,.92);
     }
     .btn.disabled{
       opacity:.65;
@@ -144,7 +152,7 @@
     .content{
       padding:26px 26px 22px;
       border-top:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.92));
+      background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.94));
     }
 
     .grid{
@@ -171,7 +179,7 @@
 
     .about p{
       margin:0 0 14px;
-      font-size:17px;
+      font-size:18px;
       line-height:1.75;
       color:rgba(21,25,36,.78);
       font-weight:400;
@@ -185,18 +193,21 @@
     }
 
     .work-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
       padding:12px 12px;
       border-radius:16px;
       border:1px solid rgba(21,25,36,.12);
-      background:rgba(255,255,255,.62);
+      background:rgba(255,255,255,.64);
+    }
+
+    .work-top{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
     }
 
     .work-title{
       margin:0;
-      font-size:18px;
+      font-size:19px;
       font-weight:700;
       line-height:1.2;
     }
@@ -214,10 +225,36 @@
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(21,25,36,.12);
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.82);
       color:rgba(21,25,36,.70);
       white-space:nowrap;
       font-weight:600;
+    }
+
+    .mini-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .mini{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(21,25,36,.14);
+      background:rgba(255,255,255,.80);
+      color:rgba(21,25,36,.82);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:600;
+      transition:transform .12s ease, background .12s ease;
+    }
+    .mini:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.95);
     }
 
     /* CONTACT */
@@ -229,7 +266,7 @@
     }
 
     .contact .contact-box{
-      background:rgba(255,255,255,.62);
+      background:rgba(255,255,255,.64);
       border:1px solid rgba(21,25,36,.12);
       border-radius:16px;
       padding:14px 14px;
@@ -263,12 +300,12 @@
       color:rgba(21,25,36,.55);
       font-size:13px;
       border-top:1px solid var(--line);
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.94);
     }
 
     @media (max-width: 860px){
       h1{ font-size:46px; }
-      .tagline{ font-size:16px; }
+      .tagline{ font-size:18px; }
       .grid{ grid-template-columns:1fr; }
       .hero-inner{ padding:24px 18px 18px; }
       .content{ padding:18px; }
@@ -287,11 +324,12 @@
         <div class="hero-inner">
           <h1>Fred Mannerfelt</h1>
           <p class="tagline">Music without borders — from piano stillness to orchestral light and electronic motion.</p>
+          <p class="subnote">The album <em>Eight Quiet Hours</em> releases this Friday.</p>
 
           <div class="links">
-            <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW?si=VRAyQugPR-6-H-EDeCG1GQ" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank" rel="noopener">Apple Music</a>
-            <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw?si=1hxiH-dWCWBcJQ7C" target="_blank" rel="noopener">YouTube Music</a>
+            <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW?si=VRAyQugPR-6-H-EDeCG1GQ" target="_blank" rel="noopener">Spotify (Artist)</a>
+            <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank" rel="noopener">Apple Music (Artist)</a>
+            <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw?si=1hxiH-dWCWBcJQ7C" target="_blank" rel="noopener">YouTube Music (Artist)</a>
 
             <span class="btn disabled">Instagram — coming soon</span>
             <span class="btn disabled">Facebook — coming soon</span>
@@ -316,20 +354,31 @@
             <h2>Selected Works</h2>
             <div class="work">
               <div class="work-item">
-                <div>
-                  <p class="work-title">Eight Quiet Hours</p>
-                  <p class="work-sub">Album — piano &amp; orchestra</p>
+                <div class="work-top">
+                  <div>
+                    <p class="work-title">Eight Quiet Hours</p>
+                    <p class="work-sub">Album — releases Friday</p>
+                  </div>
+                  <span class="pill">Album</span>
                 </div>
-                <span class="pill">Album</span>
               </div>
 
               <div class="work-item">
-                <div>
-                  <p class="work-title">Rise</p>
-                  <p class="work-sub">Single — solo &amp; orchestral counterpart</p>
+                <div class="work-top">
+                  <div>
+                    <p class="work-title">Rise</p>
+                    <p class="work-sub">Single — piano version + orchestral counterpart</p>
+                  </div>
+                  <span class="pill">Single</span>
                 </div>
-                <span class="pill">Single</span>
+
+                <div class="mini-links">
+                  <a class="mini" href="https://open.spotify.com/track/3hkdbpKGkZGuqRdteRhWCW?si=ee4dda29f90145c4" target="_blank" rel="noopener">Spotify</a>
+                  <a class="mini" href="https://music.apple.com/se/album/rise/1860167200?i=1860167201" target="_blank" rel="noopener">Apple Music</a>
+                  <a class="mini" href="https://music.youtube.com/watch?v=uG7MAr3B6Do&si=-5-B8hpp0773Zphw" target="_blank" rel="noopener">YouTube Music</a>
+                </div>
               </div>
+
             </div>
           </div>
 
