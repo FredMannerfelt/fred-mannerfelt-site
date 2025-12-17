@@ -23,9 +23,9 @@
       --glass: rgba(255,255,255,.88);
       --glass2: rgba(255,255,255,.72);
 
-      --radius: 20px;
-      --shadow: 0 26px 90px rgba(10,18,45,.12);
-      --max: 1040px;
+      --radius:20px;
+      --shadow:0 26px 90px rgba(10,18,45,.12);
+      --max:1040px;
     }
 
     *{ box-sizing:border-box; }
@@ -71,18 +71,16 @@
       filter:saturate(1.06) contrast(1.03);
     }
 
-    /* Light overlay to keep text readable without killing the image */
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(255,255,255,.08) 0%,
-          rgba(255,255,255,.38) 55%,
-          rgba(248,249,251,.88) 100%
-        );
+      background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,.08) 0%,
+        rgba(255,255,255,.38) 55%,
+        rgba(248,249,251,.88) 100%
+      );
     }
 
     .hero-inner{
@@ -92,13 +90,23 @@
       width:100%;
     }
 
+    /* NAME */
     h1{
       margin:0 0 8px;
       font-size:52px;
       line-height:1.02;
-      letter-spacing:-.01em;
+      font-weight:500;
+      color:rgba(12,14,20,.82);
+    }
+
+    .first-name{
+      margin-right:8px;
+    }
+
+    .last-name{
+      font-variant: small-caps;
+      letter-spacing:.08em;
       font-weight:600;
-      color:rgba(12,14,20,.84);
     }
 
     .tagline{
@@ -136,25 +144,22 @@
       color:rgba(12,14,20,.82);
       text-decoration:none;
       font-size:14px;
-      line-height:1;
       font-weight:600;
       transition:transform .12s ease, background .12s ease;
-      user-select:none;
-      white-space:nowrap;
     }
     .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.86); }
     .btn.disabled{ opacity:.62; pointer-events:none; }
 
     /* CONTENT */
     .content{
-      padding:26px 26px 18px;
+      padding:26px;
       border-top:1px solid var(--line);
       background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.90));
     }
 
     .grid{
       display:grid;
-      grid-template-columns: 1.15fr .95fr;
+      grid-template-columns:1.15fr .95fr;
       gap:18px;
     }
 
@@ -162,7 +167,7 @@
       background:var(--glass2);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:18px 18px;
+      padding:18px;
     }
 
     .card h2{
@@ -181,16 +186,13 @@
       color:rgba(12,14,20,.72);
       font-weight:500;
     }
-    .about p:last-child{ margin-bottom:0; }
 
-    /* Works list */
     .work{ display:flex; flex-direction:column; gap:10px; }
 
     .work-item{
       display:flex;
       gap:12px;
-      align-items:flex-start;
-      padding:12px 12px;
+      padding:12px;
       border-radius:16px;
       border:1px solid rgba(12,14,20,.12);
       background:rgba(255,255,255,.60);
@@ -200,15 +202,11 @@
       margin:0;
       font-size:16px;
       font-weight:700;
-      letter-spacing:.01em;
-      line-height:1.2;
-      color:rgba(12,14,20,.86);
     }
 
     .work-sub{
       margin:5px 0 0;
       font-size:14px;
-      line-height:1.45;
       color:rgba(12,14,20,.62);
       font-weight:600;
     }
@@ -216,8 +214,8 @@
     .work-links{
       margin-top:10px;
       display:flex;
-      flex-wrap:wrap;
       gap:8px;
+      flex-wrap:wrap;
     }
 
     .pill{
@@ -228,14 +226,12 @@
       border:1px solid rgba(12,14,20,.12);
       background:rgba(255,255,255,.78);
       color:rgba(12,14,20,.62);
-      white-space:nowrap;
       font-weight:700;
     }
 
-    /* Contact */
     .contact-row{
       display:grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-template-columns:1.3fr 1fr 1fr;
       gap:12px;
     }
 
@@ -243,32 +239,23 @@
       background:rgba(255,255,255,.62);
       border:1px solid rgba(12,14,20,.12);
       border-radius:16px;
-      padding:12px 12px;
+      padding:12px;
     }
 
     .mini .k{
-      display:block;
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
       color:rgba(12,14,20,.55);
-      margin-bottom:6px;
       font-weight:700;
+      margin-bottom:6px;
+      display:block;
     }
 
     .mini .v{
       font-size:16px;
-      color:rgba(12,14,20,.82);
       font-weight:700;
-      line-height:1.3;
     }
-
-    .mini a{
-      color:rgba(12,14,20,.82);
-      text-decoration:none;
-      border-bottom:1px solid rgba(12,14,20,.22);
-    }
-    .mini a:hover{ border-bottom-color:transparent; }
 
     .footer{
       padding:16px 26px 24px;
@@ -279,12 +266,9 @@
       font-weight:600;
     }
 
-    @media (max-width: 860px){
+    @media (max-width:860px){
       h1{ font-size:42px; }
-      .tagline{ font-size:18px; }
       .grid{ grid-template-columns:1fr; }
-      .hero-inner{ padding:26px 18px 18px; }
-      .content{ padding:18px; }
       .contact-row{ grid-template-columns:1fr; }
     }
   </style>
@@ -294,31 +278,28 @@
   <div class="wrap">
     <div class="panel">
 
-      <!-- HERO -->
       <section class="hero">
         <img src="images/brygga.jpg" alt="Calm water at dusk with a wooden pier" />
         <div class="hero-inner">
-          <h1>Fred Mannerfelt</h1>
+          <h1>
+            <span class="first-name">Fred</span>
+            <span class="last-name">Mannerfelt</span>
+          </h1>
+
           <p class="tagline">Music without borders — from piano stillness to orchestral light and electronic motion.</p>
           <p class="release-note">The album <em>Eight Quiet Hours</em> releases this Friday.</p>
 
           <div class="links">
-            <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW?si=VRAyQugPR-6-H-EDeCG1GQ" target="_blank" rel="noopener">Spotify (Artist)</a>
-            <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank" rel="noopener">Apple Music (Artist)</a>
-            <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw?si=1hxiH-dWCWBcJQ7C" target="_blank" rel="noopener">YouTube Music (Artist)</a>
-
-            <span class="btn disabled">Instagram — coming soon</span>
-            <span class="btn disabled">Facebook — coming soon</span>
-
+            <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW" target="_blank">Spotify</a>
+            <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank">Apple Music</a>
+            <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw" target="_blank">YouTube Music</a>
             <a class="btn" href="mailto:fred@fredmannerfelt.com">Email</a>
           </div>
         </div>
       </section>
 
-      <!-- CONTENT -->
       <section class="content">
         <div class="grid">
-
           <div class="card about">
             <h2>About</h2>
             <p>I build sound the way one shapes a sculpture — guided by intuition, not labels.</p>
@@ -328,12 +309,12 @@
 
           <div class="card">
             <h2>Selected Works</h2>
-            <div class="work">
 
+            <div class="work">
               <div class="work-item">
                 <div>
                   <p class="work-title">Eight Quiet Hours</p>
-                  <p class="work-sub">Album — piano &amp; orchestra (releases Friday)</p>
+                  <p class="work-sub">Album — piano &amp; orchestra</p>
                 </div>
                 <span class="pill">Album</span>
               </div>
@@ -341,29 +322,26 @@
               <div class="work-item">
                 <div>
                   <p class="work-title">Rise</p>
-                  <p class="work-sub">Single — piano version + orchestral counterpart</p>
+                  <p class="work-sub">Single — piano &amp; orchestral versions</p>
 
                   <div class="work-links">
-                    <a class="btn" href="https://open.spotify.com/track/3hkdbpKGkZGuqRdteRhWCW?si=ee4dda29f90145c4" target="_blank" rel="noopener">Spotify</a>
-                    <a class="btn" href="https://music.apple.com/se/album/rise/1860167200?i=1860167201" target="_blank" rel="noopener">Apple Music</a>
-                    <a class="btn" href="https://music.youtube.com/watch?v=uG7MAr3B6Do&si=-5-B8hpp0773Zphw" target="_blank" rel="noopener">YouTube Music</a>
+                    <a class="btn" href="https://open.spotify.com/track/3hkdbpKGkZGuqRdteRhWCW" target="_blank">Spotify</a>
+                    <a class="btn" href="https://music.apple.com/se/album/rise/1860167200?i=1860167201" target="_blank">Apple</a>
+                    <a class="btn" href="https://music.youtube.com/watch?v=uG7MAr3B6Do" target="_blank">YouTube</a>
                   </div>
                 </div>
                 <span class="pill">Single</span>
               </div>
-
             </div>
           </div>
-
         </div>
 
-        <!-- CONTACT -->
         <div class="card" style="margin-top:18px;">
           <h2>Contact</h2>
           <div class="contact-row">
             <div class="mini">
               <span class="k">Email</span>
-              <div class="v"><a href="mailto:fred@fredmannerfelt.com">fred@fredmannerfelt.com</a></div>
+              <div class="v">fred@fredmannerfelt.com</div>
             </div>
             <div class="mini">
               <span class="k">US</span>
@@ -375,10 +353,10 @@
             </div>
           </div>
         </div>
-
       </section>
 
       <div class="footer">© 2025 Fred Mannerfelt</div>
+
     </div>
   </div>
 </body>
