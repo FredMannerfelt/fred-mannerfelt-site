@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fred Mannerfelt</title>
-  <meta name="description" content="Music without borders — from piano stillness to orchestral light and electronic motion." />
+  <meta name="description" content="Fred Mannerfelt — composer and producer. Piano, orchestral works, and electronic motion without borders." />
 
   <!-- Libre Baskerville -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,54 +13,63 @@
 
   <style>
     :root{
-      --ink:#1b1f2a;
-      --muted:rgba(27,31,42,.72);
-      --line:rgba(27,31,42,.14);
+      --ink:#161a22;
+      --muted:rgba(22,26,34,.72);
+      --line:rgba(22,26,34,.14);
 
-      --bg1:#eaf0ff;
-      --bg2:#ffffff;
+      --paper:#f6f7f8;
+      --paper2:#ffffff;
 
-      --glass:rgba(255,255,255,.82);
-      --glass2:rgba(255,255,255,.62);
+      --card:rgba(255,255,255,.82);
+      --card2:rgba(255,255,255,.70);
 
       --radius:20px;
-      --shadow:0 24px 80px rgba(10,18,45,.12);
       --max:1040px;
+
+      --shadow: 0 30px 90px rgba(15,25,55,.14);
+      --shadow2: 0 12px 35px rgba(15,25,55,.10);
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family:"Libre Baskerville", Georgia, serif;
       color:var(--ink);
       background:
-        radial-gradient(900px 600px at 18% 18%, rgba(120,160,255,.35), transparent 60%),
-        radial-gradient(900px 600px at 82% 22%, rgba(0,200,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 35% 85%, rgba(180,140,255,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+        radial-gradient(1200px 720px at 18% 12%, rgba(120,160,255,.28), transparent 60%),
+        radial-gradient(1100px 680px at 82% 14%, rgba(0,200,255,.16), transparent 60%),
+        radial-gradient(1000px 680px at 40% 92%, rgba(190,150,255,.14), transparent 60%),
+        linear-gradient(180deg, var(--paper), var(--paper2));
       min-height:100vh;
-      padding:40px 18px 56px;
+      padding:44px 18px 64px;
     }
+
+    a{ color:inherit; text-decoration:none; }
 
     .wrap{
       max-width:var(--max);
       margin:0 auto;
     }
 
+    /* TOP CARD (whole page container) */
     .panel{
-      background:var(--glass);
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
       overflow:hidden;
       backdrop-filter: blur(10px);
     }
 
+    /* HERO */
     .hero{
       position:relative;
-      min-height:360px;
+      min-height: 420px;
       display:flex;
       align-items:flex-end;
+      border-bottom: 1px solid var(--line);
+      background:#e9eef7;
     }
 
     .hero img{
@@ -69,20 +78,22 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.03);
-      filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.02);
+      filter:saturate(1.03) contrast(1.03);
+      z-index:0;
     }
 
-    /* Light, readable overlay (not too dark) */
+    /* Gentle overlay – keeps text readable without killing the image */
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
+      z-index:1;
       background:
         linear-gradient(
           to bottom,
-          rgba(255,255,255,.10) 0%,
-          rgba(255,255,255,.52) 58%,
+          rgba(255,255,255,.08) 0%,
+          rgba(255,255,255,.35) 40%,
           rgba(246,247,248,.88) 100%
         );
     }
@@ -90,31 +101,31 @@
     .hero-inner{
       position:relative;
       z-index:2;
-      padding:34px 34px 26px;
       width:100%;
+      padding: 40px 34px 28px;
     }
 
     h1{
       margin:0 0 10px;
-      font-size:54px;
-      line-height:1.05;
+      font-size: clamp(38px, 4.8vw, 60px);
+      line-height:1.02;
       letter-spacing:-.02em;
       font-weight:700;
     }
 
     .tagline{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.6;
-      max-width:720px;
+      margin:0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
     }
 
     .links{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin:10px 0 0;
+      margin-top:18px;
     }
 
     .btn{
@@ -124,56 +135,59 @@
       padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.65);
-      color:var(--ink);
-      text-decoration:none;
-      font-size:13px;
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      font-size: 13px;
       line-height:1;
-      transition:transform .12s ease, background .12s ease;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
       user-select:none;
     }
+
     .btn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.82);
+      transform: translateY(-1px);
+      background:#fff;
+      box-shadow: var(--shadow2);
     }
+
     .btn.disabled{
-      opacity:.65;
+      opacity:.60;
       pointer-events:none;
     }
 
+    /* CONTENT */
     .content{
-      padding:26px 26px 22px;
-      border-top:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.86));
+      padding: 26px 26px 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.66), rgba(255,255,255,.86));
     }
 
     .grid{
       display:grid;
-      grid-template-columns: 1.2fr .9fr;
-      gap:18px;
+      grid-template-columns: 1.15fr .95fr;
+      gap: 18px;
     }
 
     .card{
-      background:var(--glass2);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px 18px;
+      background: var(--card2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px;
     }
 
-    .card h2{
+    .kicker{
       margin:0 0 10px;
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
       font-weight:700;
-      color:rgba(27,31,42,.75);
+      color: rgba(22,26,34,.70);
     }
 
     .about p{
       margin:0 0 12px;
       font-size:14px;
-      line-height:1.75;
-      color:rgba(27,31,42,.78);
+      line-height:1.78;
+      color: rgba(22,26,34,.78);
     }
     .about p:last-child{ margin-bottom:0; }
 
@@ -189,8 +203,8 @@
       align-items:flex-start;
       padding:12px 12px;
       border-radius:16px;
-      border:1px solid rgba(27,31,42,.12);
-      background:rgba(255,255,255,.55);
+      border:1px solid rgba(22,26,34,.12);
+      background: rgba(255,255,255,.62);
     }
 
     .work-title{
@@ -199,11 +213,12 @@
       font-weight:700;
       line-height:1.25;
     }
+
     .work-sub{
       margin:4px 0 0;
       font-size:12px;
       line-height:1.5;
-      color:rgba(27,31,42,.68);
+      color: rgba(22,26,34,.68);
     }
 
     .pill{
@@ -211,54 +226,70 @@
       font-size:11px;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(27,31,42,.12);
-      background:rgba(255,255,255,.75);
-      color:rgba(27,31,42,.72);
+      border:1px solid rgba(22,26,34,.12);
+      background: rgba(255,255,255,.76);
+      color: rgba(22,26,34,.68);
       white-space:nowrap;
     }
 
+    /* CONTACT */
     .contact{
       margin-top:18px;
     }
 
-    .contact-item{
-      margin:0 0 12px;
-      font-size:14px;
-      line-height:1.7;
-      color:rgba(27,31,42,.78);
+    .contact-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
     }
 
-    .contact-item strong{
+    .contact-box{
+      border:1px solid rgba(22,26,34,.12);
+      background: rgba(255,255,255,.62);
+      border-radius:16px;
+      padding:12px 12px;
+    }
+
+    .label{
       display:block;
-      font-size:12px;
-      letter-spacing:.14em;
+      font-size:11px;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color:rgba(27,31,42,.68);
-      margin-bottom:4px;
+      font-weight:700;
+      color: rgba(22,26,34,.62);
+      margin-bottom:6px;
     }
 
-    .contact a{
-      color:var(--ink);
-      text-decoration:none;
-      border-bottom:1px solid var(--line);
+    .value{
+      font-size:14px;
+      color: rgba(22,26,34,.80);
+      line-height:1.45;
+      word-break: break-word;
     }
-    .contact a:hover{
-      border-bottom-color:transparent;
+
+    .value a{
+      border-bottom:1px solid rgba(22,26,34,.22);
+    }
+    .value a:hover{
+      border-bottom-color: transparent;
     }
 
     .footer{
-      padding:16px 26px 26px;
-      color:rgba(27,31,42,.55);
-      font-size:12px;
+      padding:16px 26px 24px;
       border-top:1px solid var(--line);
-      background:rgba(255,255,255,.86);
+      background: rgba(255,255,255,.86);
+      color: rgba(22,26,34,.55);
+      font-size:12px;
     }
 
-    @media (max-width: 860px){
-      h1{ font-size:42px; }
-      .grid{ grid-template-columns:1fr; }
-      .hero-inner{ padding:26px 18px 18px; }
-      .content{ padding:18px; }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      .contact-row{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px){
+      body{ padding:22px 12px 48px; }
+      .hero-inner{ padding: 28px 18px 18px; }
     }
   </style>
 </head>
@@ -269,11 +300,12 @@
 
       <!-- HERO -->
       <section class="hero">
-        <!-- Your image path in the repo -->
-        <img src="images/brygga.jpg" alt="Dusk over calm water" />
+        <img src="/images/brygga.jpg" alt="Pier at dusk" />
         <div class="hero-inner">
           <h1>Fred Mannerfelt</h1>
-          <p class="tagline">Music without borders — from piano stillness to orchestral light and electronic motion.</p>
+          <p class="tagline">
+            Music without borders — from piano stillness to orchestral light and electronic motion.
+          </p>
 
           <div class="links">
             <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW?si=VRAyQugPR-6-H-EDeCG1GQ" target="_blank" rel="noopener">Spotify</a>
@@ -293,14 +325,21 @@
         <div class="grid">
 
           <div class="card about">
-            <h2>About</h2>
-            <p>I build sound the way you build a road at night — guided by feel, not labels.</p>
-            <p>Some pieces are quiet hours, others are movement and momentum. Always melodic. Always cinematic in spirit.</p>
-            <p>Releases often arrive as “cycles” — the same core idea expressed in solo piano, orchestral form, and electronic versions.</p>
+            <p class="kicker">About</p>
+            <p>
+              I build sound the way you build a road at night — guided by feel, not labels.
+            </p>
+            <p>
+              Some pieces are quiet hours, others are movement and momentum. Always melodic. Always cinematic in spirit.
+            </p>
+            <p>
+              Releases often arrive as “cycles” — the same core idea expressed in solo piano and orchestral form.
+            </p>
           </div>
 
           <div class="card">
-            <h2>Selected Works</h2>
+            <p class="kicker">Selected works</p>
+
             <div class="work">
               <div class="work-item">
                 <div>
@@ -332,26 +371,30 @@
 
         <!-- CONTACT -->
         <div class="card contact">
-          <h2>Contact</h2>
+          <p class="kicker">Contact</p>
 
-          <p class="contact-item">
-            <strong>Email</strong>
-            <a href="mailto:fred@fredmannerfelt.com">fred@fredmannerfelt.com</a>
-          </p>
+          <div class="contact-row">
+            <div class="contact-box">
+              <span class="label">Email</span>
+              <div class="value"><a href="mailto:fred@fredmannerfelt.com">fred@fredmannerfelt.com</a></div>
+            </div>
 
-          <p class="contact-item">
-            <strong>US</strong>
-            +1 415 324 09 04
-          </p>
+            <div class="contact-box">
+              <span class="label">US</span>
+              <div class="value">+1 415 324 09 04</div>
+            </div>
 
-          <p class="contact-item">
-            <strong>EU</strong>
-            +46 708 377 566
-          </p>
+            <div class="contact-box">
+              <span class="label">EU</span>
+              <div class="value">+46 708 377 566</div>
+            </div>
+          </div>
         </div>
+
       </section>
 
       <div class="footer">© 2025 Fred Mannerfelt</div>
+
     </div>
   </div>
 </body>
