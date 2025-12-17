@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Fred Mannerfelt</title>
-  <meta name="description" content="Fred Mannerfelt — composer and producer. A cycle in piano & orchestra, released without genre constraints." />
+  <meta name="description" content="Fred Mannerfelt — composer and producer. Piano, orchestral and electronic music without borders." />
 
   <!-- Libre Baskerville -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +14,12 @@
 
   <style>
     :root{
+      --bg:#070b14;
       --ink:#f5f6f7;
-      --muted:rgba(245,246,247,.72);
-      --line:rgba(255,255,255,.18);
-      --glass:rgba(10,14,25,.52);
-      --glass2:rgba(10,14,25,.38);
-      --radius:18px;
+      --muted:rgba(245,246,247,.7);
+      --line:rgba(255,255,255,.15);
+      --glass:rgba(10,14,25,.55);
+      --radius:22px;
       --max:980px;
     }
 
@@ -26,198 +27,226 @@
 
     body{
       margin:0;
-      font-family: "Libre Baskerville", ui-serif, Georgia, serif;
+      font-family:"Libre Baskerville", serif;
       color:var(--ink);
-
-      /* Background image (upload harbor.jpg to repo) */
       background:
-        radial-gradient(900px 520px at 25% 20%, rgba(255,210,160,.12), transparent 60%),
-        radial-gradient(900px 520px at 75% 70%, rgba(120,180,255,.10), transparent 65%),
-        linear-gradient(rgba(10,14,25,.55), rgba(10,14,25,.86)),
-        url("/harbor.jpg") center / cover no-repeat fixed;
+        radial-gradient(900px 600px at 20% 10%, rgba(120,140,255,.18), transparent 60%),
+        radial-gradient(800px 500px at 80% 80%, rgba(0,200,255,.12), transparent 60%),
+        var(--bg);
+    }
 
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      line-height: 1.65;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:84px 22px 48px;
+      padding:48px 24px 64px;
     }
 
-    header{
-      margin-bottom:28px;
+    /* HERO */
+    .hero{
+      position:relative;
+      height:70vh;
+      min-height:520px;
+      border-radius:28px;
+      overflow:hidden;
+      margin-bottom:56px;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.65) contrast(1.05);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        to bottom,
+        rgba(5,8,18,.15),
+        rgba(5,8,18,.9)
+      );
+    }
+
+    .hero-content{
+      position:absolute;
+      left:48px;
+      bottom:48px;
+      max-width:640px;
+      z-index:2;
     }
 
     h1{
-      margin:0;
-      font-size:46px;
+      font-size:clamp(2.6rem,4.2vw,3.4rem);
+      margin:0 0 14px;
       font-weight:700;
-      letter-spacing:.2px;
     }
 
-    .subtitle{
-      margin:12px 0 0;
-      max-width:62ch;
+    .tagline{
+      font-size:1.05rem;
+      line-height:1.6;
       color:var(--muted);
-      font-size:16px;
     }
 
+    /* BUTTONS */
     .links{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
+      gap:12px;
+      margin-top:28px;
     }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
+      padding:10px 16px;
       border-radius:999px;
       border:1px solid var(--line);
-      text-decoration:none;
-      color:var(--ink);
-      font-size:13px;
-
-      background:rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .btn:hover{background:rgba(255,255,255,.10)}
-    .btn-disabled{
-      opacity:.45;
-      cursor:default;
-      user-select:none;
+      background:rgba(255,255,255,.04);
+      font-size:.9rem;
+      transition:.2s ease;
     }
 
+    .btn:hover{
+      background:rgba(255,255,255,.1);
+    }
+
+    /* GRID */
     .grid{
       display:grid;
-      gap:18px;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
     }
-    @media (min-width:900px){
-      .grid{grid-template-columns:1.15fr .85fr}
+
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr}
+      .hero-content{left:28px; right:28px}
     }
 
     .card{
       background:var(--glass);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:18px;
-
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+      padding:26px 28px;
     }
 
-    .kicker{
-      margin:0 0 10px;
-      font-size:12px;
-      letter-spacing:1.2px;
+    h2{
+      font-size:1rem;
+      letter-spacing:.12em;
       text-transform:uppercase;
-      color:rgba(245,246,247,.55);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--muted);
+      margin:0 0 16px;
     }
 
-    .p{margin:0; color:var(--muted)}
-    .p + .p{margin-top:10px}
+    .about p{
+      font-size:.98rem;
+      line-height:1.7;
+      color:var(--muted);
+      margin:0 0 14px;
+    }
 
     .works{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:10px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
 
     .work{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:var(--glass2);
-    }
-    .work b{display:block; font-weight:700}
-    .work small{display:block; color:var(--muted); margin-top:2px}
-
-    footer{
-      margin-top:26px;
-      padding-top:14px;
-      border-top:1px solid var(--line);
       display:flex;
       justify-content:space-between;
       gap:12px;
-      flex-wrap:wrap;
-      font-size:12px;
-      color:rgba(245,246,247,.62);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .work strong{
+      font-weight:700;
+    }
+
+    .work span{
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:64px;
+      font-size:.8rem;
+      color:var(--muted);
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
-      <h1>Fred Mannerfelt</h1>
-      <p class="subtitle">
-        Composer and producer working across piano and orchestral forms — released as cycles rather than genres.
-      </p>
 
-      <nav class="links">
-        <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW" target="_blank" rel="noreferrer">Spotify</a>
-        <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank" rel="noreferrer">Apple Music</a>
-        <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw" target="_blank" rel="noreferrer">YouTube</a>
+    <!-- HERO -->
+    <header class="hero">
+      <img src="images/brygga.jpg" alt="Still water and pier at dusk">
+      <div class="hero-content">
+        <h1>Fred Mannerfelt</h1>
+        <p class="tagline">
+          Music without borders — from piano stillness to orchestral light and electronic motion.
+        </p>
 
-        <span class="btn btn-disabled">Instagram — coming soon</span>
-        <span class="btn btn-disabled">Facebook — coming soon</span>
-
-        <a class="btn" href="mailto:fred@fredmannerfelt.com">Email</a>
-      </nav>
+        <div class="links">
+          <a class="btn" href="https://open.spotify.com/artist/6GRKpEFOfVCetWxOVav8cW" target="_blank">Spotify</a>
+          <a class="btn" href="https://music.apple.com/se/artist/fred-mannerfelt/1860096718" target="_blank">Apple Music</a>
+          <a class="btn" href="https://music.youtube.com/channel/UCRpGcJ3HYMBpUTbuXO1eHXw" target="_blank">YouTube Music</a>
+          <span class="btn">Instagram — coming soon</span>
+          <a class="btn" href="mailto:fred@fredmannerfelt.com">Email</a>
+        </div>
+      </div>
     </header>
 
+    <!-- CONTENT -->
     <section class="grid">
-      <div class="card">
-        <p class="kicker">About</p>
-        <p class="p">
-          Fred Mannerfelt writes music that moves between intimacy and scale — a single piano line,
-          an orchestral horizon, and the quiet tension of modern production. The focus is always tone,
-          space, and emotional clarity.
+
+      <div class="card about">
+        <h2>About</h2>
+        <p>
+          I build sound the way you build a road at night — guided by feel, not labels.
+          Some pieces are quiet hours, others are high-speed runs.
         </p>
-        <p class="p">
-          Many releases exist in paired forms: solo works and orchestral counterparts — the same material,
-          seen from two angles.
+        <p>
+          Always melodic. Always cinematic in spirit.
+        </p>
+        <p>
+          New releases arrive as cycles — the same core idea expressed through
+          solo piano, orchestral works, and electronic forms.
         </p>
       </div>
 
-      <aside class="card">
-        <p class="kicker">Selected works</p>
-        <ul class="works">
-          <li class="work">
-            <b>Eight Quiet Hours</b>
-            <small>A cycle in piano & orchestra</small>
-          </li>
-          <li class="work">
-            <b>Rise</b>
-            <small>Solo piano & orchestral version</small>
-          </li>
-          <li class="work">
-            <b>The Process</b>
-            <small>Techno / acid-driven (coming soon here)</small>
-          </li>
-        </ul>
-      </aside>
+      <div class="card">
+        <h2>Selected Works</h2>
+        <div class="works">
+          <div class="work">
+            <strong>Eight Quiet Hours</strong>
+            <span>Album — piano & orchestra</span>
+          </div>
+          <div class="work">
+            <strong>Rise</strong>
+            <span>Single — solo & orchestral</span>
+          </div>
+          <div class="work">
+            <strong>The Process</strong>
+            <span>Single — techno / hypnotic drive</span>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <footer>
-      <div>© <span id="y"></span> Fred Mannerfelt</div>
-      <div>fredmannerfelt.com</div>
+      © 2025 Fred Mannerfelt
     </footer>
-  </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  </div>
 </body>
 </html>
